@@ -39,6 +39,7 @@ parts:
       rm -rf "$SNAPCRAFT_PART_INSTALL/*"
       make 7zFM 7zG
       make install DEST_DIR="$SNAPCRAFT_PART_INSTALL"
+      mkdir -p "$SNAPCRAFT_PART_INSTALL/usr/share/applications"
       cp 7zFM.desktop "$SNAPCRAFT_PART_INSTALL/usr/share/applications/7zFM.desktop"
       
     build-packages:

@@ -18,7 +18,19 @@ parts:
     
     override-pull: |
       snapcraftctl pull
-      cp makefile.linux_amd64_asm makefile.machine
+      
+      if [ "$SNAP_ARCH" = "arm64" ]; then
+        cp makefile.linux_amd64_asm makefile.machine
+      fi
+      
+      if [ "$SNAP_ARCH" = "i386" ]; then
+        cp makefile.linux_x86_asm_gcc_4.X makefile.machine
+      fi
+      
+      if [ "$SNAP_ARCH" = "arm64" ] || [ "$SNAP_ARCH" = "armhf" ]; then
+        cp makefile.linux_any_cpu_gcc_4.X makefile.machine
+      fi
+      
       cd Utils
       ./generate.py
       

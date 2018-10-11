@@ -1,4 +1,4 @@
-name: 7zip-desktop
+name: p7zip-desktop
 version: "16.02"
 summary: 7Zip Desktop
 description: |
@@ -7,11 +7,11 @@ description: |
 confinement: devmode
 
 apps:
-  7zip-desktop:
+  p7zip-desktop:
     command: /usr/local/bin/7zFM
 
 parts:
-  7zip-desktop:
+  p7zip-desktop:
     plugin: dump 
     source-type: git
     source: git://github.com/ErnyTech/p7zip.git

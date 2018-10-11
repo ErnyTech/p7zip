@@ -16,6 +16,7 @@ apps:
     - wayland 
     - desktop
     - desktop-legacy
+    - home
 
 parts:
   p7zip-desktop:

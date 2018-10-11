@@ -8,13 +8,12 @@ confinement: devmode
 
 apps:
   p7zip-desktop:
-    command: /usr/local/bin/7zFM
+    command: usr/local/bin/7zFM
 
 parts:
   p7zip-desktop:
     plugin: dump 
-    source-type: git
-    source: git://github.com/ErnyTech/p7zip.git
+    source: .
     
     override-pull: |
       snapcraftctl pull
@@ -35,7 +34,7 @@ parts:
       ./generate.py
       
     override-build: |
-      snapcraftctl build
+      rm -rf "$SNAPCRAFT_PART_INSTALL/*"
       make 7zFM 7zG
       make install DEST_DIR="$SNAPCRAFT_PART_INSTALL"
       

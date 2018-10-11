@@ -550,7 +550,7 @@ ENDIF(APPLE)
 
 ''')
 
-project_7zFM=Structure(name="7zFM_do_not_use",name2="7zFM_do_not_use",
+project_7zFM=Structure(name="7zFM",name2="7zFM",
 	type=TYPE_EXE,
 	need_AES=False,
 	includedirs=includedirs_7za,
@@ -572,10 +572,10 @@ include( ${wxWidgets_USE_FILE} )
 link_directories(${DL_LIB_PATH})
 
 IF(APPLE)
-   TARGET_LINK_LIBRARIES(7zFM_do_not_use ${COREFOUNDATION_LIBRARY} ${wxWidgets_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+   TARGET_LINK_LIBRARIES(7zFM ${COREFOUNDATION_LIBRARY} ${wxWidgets_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 ELSE(APPLE)
   IF(HAVE_PTHREADS)
-   TARGET_LINK_LIBRARIES(7zFM_do_not_use ${wxWidgets_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} dl)
+   TARGET_LINK_LIBRARIES(7zFM ${wxWidgets_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} dl)
   ENDIF(HAVE_PTHREADS)
 ENDIF(APPLE)
 

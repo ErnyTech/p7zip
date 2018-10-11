@@ -41,6 +41,7 @@ parts:
       make install DEST_DIR="$SNAPCRAFT_PART_INSTALL"
       mkdir -p "$SNAPCRAFT_PART_INSTALL/usr/share/applications"
       cp 7zFM.desktop "$SNAPCRAFT_PART_INSTALL/usr/share/applications/7zFM.desktop"
+      gdk-pixbuf-query-loaders > "$SNAPCRAFT_PART_INSTALL/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache"
       
     build-packages:
       - gcc
@@ -49,6 +50,7 @@ parts:
       - libwxgtk3.0-dev
       - yasm
       - python
+      - libgdk-pixbuf2.0-dev
       
     stage-packages:
       - libice6

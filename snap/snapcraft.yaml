@@ -1,6 +1,7 @@
 name: p7zip-desktop
 version: "16.02"
 summary: 7Zip Desktop
+icon: GUI/p7zip_32.png
 description: |
   7-Zip is a file archiver with a high compression ratio, this package also includes the graphic frontend for maximum cosiness on the desktop
 
@@ -9,6 +10,7 @@ confinement: devmode
 apps:
   p7zip-desktop:
     command: usr/local/bin/7zFM
+    desktop: usr/share/applications/7zFM.desktop
 
 parts:
   p7zip-desktop:
@@ -37,13 +39,20 @@ parts:
       rm -rf "$SNAPCRAFT_PART_INSTALL/*"
       make 7zFM 7zG
       make install DEST_DIR="$SNAPCRAFT_PART_INSTALL"
+      cp 7zFM.desktop "$SNAPCRAFT_PART_INSTALL/usr/share/applications/7zFM.desktop"
       
     build-packages:
       - gcc
+      - g++
       - make
       - libwxgtk3.0-dev
       - yasm
+      - python
+      
+    stage-packages:
       - libice6
       - libsm6
       - libx11-6
       - libxau-dev
+      - libgdk-pixbuf2.0-0
+      - zlib1g

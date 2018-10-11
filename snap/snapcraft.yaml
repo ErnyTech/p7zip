@@ -19,10 +19,7 @@ parts:
     override-pull: |
       snapcraftctl pull
       cp makefile.linux_amd64_asm makefile.machine
-      sed -i 's/x86_64-linux-gnu//g' CPP/7zip/*/*/*.depend
-      rm GUI/kde4/p7zip_compress.desktop
       cd Utils
-      sed -i 's/_do_not_use//g' generate.py
       ./generate.py
       
     override-build: |

@@ -49,35 +49,4 @@ parts:
       - python
       
     stage-packages:
-      - libice6
-      - libsm6
-      - libx11-6
-      - libxau-dev
-      - libgdk-pixbuf2.0-0
-      - zlib1g
-      - libxcomposite1
-      - libxcursor1
-      - libxdamage1
-      - libxext6
-      - libxfixes3
-      - libxi6
-      - libxinerama1
-      - libxrandr2
-      - libxrender1
-      - libxxf86vm1
-      - libatk1.0-0
-      - libcairo2
-      - libdatrie1
-      - libfontconfig1
-      - libgtk2.0-0
-      - libgraphite2-3
-      - libharfbuzz0b
-      - libnotify4
-      - libpango-1.0-0
-      - libpangocairo-1.0-0
-      - libpangoft2-1.0-0
-      - libpixman-1-0
-      - libthai0
-      - libwxbase3.0-0v5
-      - libxcb-render0
-      - libxcb-shm0
+      - libwxgtk3.0-0v5

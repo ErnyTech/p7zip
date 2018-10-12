@@ -9,7 +9,7 @@ confinement: devmode
 
 apps:
   p7zip-desktop:
-    command: usr/local/bin/7zFM
+    command: usr/local/bin/7zDesktop
     desktop: usr/share/applications/7zFM.desktop
     plugs:
     - x11
@@ -47,6 +47,9 @@ parts:
       make install DEST_DIR="$SNAPCRAFT_PART_INSTALL"
       mkdir -p "$SNAPCRAFT_PART_INSTALL/usr/share/applications"
       cp 7zFM.desktop "$SNAPCRAFT_PART_INSTALL/usr/share/applications/7zFM.desktop"
+      cp 7zDesktop "$SNAPCRAFT_PART_INSTALL/usr/local/bin/7zDesktop"
+      chmod +x "$SNAPCRAFT_PART_INSTALL/usr/local/bin/7zDesktop"
+      chmod +x "$SNAPCRAFT_PART_INSTALL/usr/local/bin/p7zipForFilemanager"
       
     build-packages:
       - gcc

@@ -2,6 +2,7 @@ name: p7zip-desktop
 version: "16.02"
 summary: 7Zip Desktop
 icon: GUI/p7zip_32.png
+grade: stable
 description: |
   7-Zip is a file archiver with a high compression ratio, this package also includes the graphic frontend for maximum cosiness on the desktop
 
@@ -54,3 +55,29 @@ parts:
       - libxau-dev
       - libgdk-pixbuf2.0-0
       - zlib1g
+      - libxcomposite1
+      - libxcursor1
+      - libxdamage1
+      - libxext6
+      - libxfixes3
+      - libxi6
+      - libxinerama1
+      - libxrandr2
+      - libxrender1
+      - libxxf86vm1
+      - libatk1.0-0
+      - libcairo2
+      - libdatrie1
+      - libfontconfig1
+      - libgtk2.0-0
+      - libgraphite2.so.3
+      - libharfbuzz0b
+      - libnotify4
+      - libpango-1.0-0
+      - libpangocairo-1.0-0
+      - libpangoft2-1.0-0
+      - libpixman-1-0
+      - libthai0
+      - libwxbase3.0-0v5
+      - libxcb-render0
+      - libxcb-shm0

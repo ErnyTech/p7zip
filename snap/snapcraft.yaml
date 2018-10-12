@@ -5,7 +5,7 @@ icon: GUI/p7zip_32.png
 description: |
   7-Zip is a file archiver with a high compression ratio, this package also includes the graphic frontend for maximum cosiness on the desktop
 
-confinement: devmode
+confinement: strict
 
 apps:
   p7zip-desktop:

@@ -25,20 +25,7 @@ parts:
     
     override-pull: |
       snapcraftctl pull
-      echo "Icon=$SNAP/meta/gui/icon.png" >> 7zFM.desktop
-      
-      if [ "$SNAP_ARCH" = "arm64" ]; then
-        cp makefile.linux_amd64_asm makefile.machine
-      fi
-      
-      if [ "$SNAP_ARCH" = "i386" ]; then
-        cp makefile.linux_x86_asm_gcc_4.X makefile.machine
-      fi
-      
-      if [ "$SNAP_ARCH" = "arm64" ] || [ "$SNAP_ARCH" = "armhf" ]; then
-        cp makefile.linux_any_cpu_gcc_4.X makefile.machine
-      fi
-      
+      echo "Icon=/snap/p7zip-desktop/current/meta/gui/icon.png" >> 7zFM.desktop
       cd Utils
       ./generate.py
       

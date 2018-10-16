@@ -1,5 +1,5 @@
 name: p7zip-desktop
-version: "16.02"
+version: "16.02.1"
 summary: 7Zip Desktop
 icon: GUI/p7zip_32.png
 grade: stable

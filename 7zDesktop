@@ -1,2 +1,11 @@
-#! /bin/sh
-"/snap/p7zip-desktop/current/usr/local/lib/p7zip/7zFM" "/home/$USER" "$@"
+#!/bin/bash
+
+if [ -z "$@" ]; then
+        if [ "$USER" == "root" ]; then 
+                "/snap/p7zip-desktop/current/usr/local/lib/p7zip/7zFM" "/root" 
+        else
+                "/snap/p7zip-desktop/current/usr/local/lib/p7zip/7zFM" "/home/$USER"
+        fi
+else
+        "/snap/p7zip-desktop/current/usr/local/lib/p7zip/7zFM" "$@"
+fi

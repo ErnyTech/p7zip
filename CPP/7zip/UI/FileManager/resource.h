@@ -43,7 +43,7 @@
 #define IDM_DIFF                 554
 #define IDM_CREATE_FOLDER        555
 #define IDM_CREATE_FILE          556
-// #define IDM_EXIT                 557
+#define IDM_EXIT                 5006
 #define IDM_LINK                 558
 #define IDM_ALT_STREAMS          559
 

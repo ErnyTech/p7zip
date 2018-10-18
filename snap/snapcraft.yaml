@@ -39,8 +39,8 @@ parts:
       cp 7zDesktop "$SNAPCRAFT_PART_INSTALL/usr/local/bin/7zDesktop"
       chmod +x "$SNAPCRAFT_PART_INSTALL/usr/local/bin/7zDesktop"
       chmod +x "$SNAPCRAFT_PART_INSTALL/usr/local/bin/p7zipForFilemanager"
-      install -dm755 "$SNAPCRAFT_PART_INSTALL/usr/lib/p7zip/help"
-      cp -r DOC/MANUAL/* "$SNAPCRAFT_PART_INSTALL/usr/lib/p7zip/help"
+      install -dm755 "$SNAPCRAFT_PART_INSTALL/usr/local/lib/p7zip/help"
+      cp -r DOC/MANUAL/* "$SNAPCRAFT_PART_INSTALL/usr/local/lib/p7zip/help"
       
     build-packages:
       - gcc

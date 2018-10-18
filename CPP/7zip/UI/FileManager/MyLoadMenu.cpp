@@ -16,6 +16,7 @@
 #undef _WIN32
 
 #include <wx/aboutdlg.h>
+#include <cstdlib>
 
 #include "../../../../C/CpuArch.h"
 #include "PropertyNameRes.h"
@@ -536,6 +537,7 @@ bool ExecuteFileCommand(int id)
     #if 0 // FIXME #ifndef UNDER_CE
     case IDM_LINK: g_App.Link(); break;
     #endif
+    case IDM_EXIT: std::exit(0); break;
     default: return false;
   } 
   printf("DEBUG : ExecuteFileCommand(id=%d)-2\n",id);

@@ -1,11 +1,10 @@
 /* CpuArch.c -- CPU specific code
-2016-02-25: Igor Pavlov : Public domain */
+2018-07-04: Igor Pavlov : Public domain */
 
 #include "Precomp.h"
 
 #include "CpuArch.h"
 
-#ifdef _7ZIP_ASM
 #ifdef MY_CPU_X86_OR_AMD64
 
 #if (defined(_MSC_VER) && !defined(MY_CPU_AMD64)) || defined(__GNUC__)
@@ -116,7 +115,7 @@ void MyCPUID(UInt32 function, UInt32 *a, UInt32 *b, UInt32 *c, UInt32 *d)
   #endif
 }
 
-Bool x86cpuid_CheckAndRead(Cx86cpuid *p)
+BoolInt x86cpuid_CheckAndRead(Cx86cpuid *p)
 {
   CHECK_CPUID_IS_SUPPORTED
   MyCPUID(0, &p->maxFunc, &p->vendor[0], &p->vendor[2], &p->vendor[1]);
@@ -145,7 +144,7 @@ int x86cpuid_GetFirm(const Cx86cpuid *p)
   return -1;
 }
 
-Bool CPU_Is_InOrder()
+BoolInt CPU_Is_InOrder()
 {
   Cx86cpuid p;
   int firm;
@@ -176,7 +175,7 @@ Bool CPU_Is_InOrder()
 
 #if !defined(MY_CPU_AMD64) && defined(_WIN32)
 #include <windows.h>
-static Bool CPU_Sys_Is_SSE_Supported()
+static BoolInt CPU_Sys_Is_SSE_Supported()
 {
   OSVERSIONINFO vi;
   vi.dwOSVersionInfoSize = sizeof(vi);
@@ -189,7 +188,7 @@ static Bool CPU_Sys_Is_SSE_Supported()
 #define CHECK_SYS_SSE_SUPPORT
 #endif
 
-Bool CPU_Is_Aes_Supported()
+BoolInt CPU_Is_Aes_Supported()
 {
   Cx86cpuid p;
   CHECK_SYS_SSE_SUPPORT
@@ -199,13 +198,3 @@ Bool CPU_Is_Aes_Supported()
 }
 
 #endif
-
-#else
-
-Bool CPU_Is_InOrder()
-{
-    return True;
-}
-
-#endif // ifdef _7ZIP_ASM
-

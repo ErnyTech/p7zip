@@ -10,7 +10,7 @@ confinement: strict
 
 apps:
   p7zip-desktop:
-    command: usr/local/bin/7zDesktop
+    command: desktop-launch $SNAP/usr/local/bin/7zDesktop
     desktop: usr/share/applications/7zFM.desktop
     plugs:
     - x11
@@ -20,6 +20,9 @@ apps:
     - home
 
 parts:
+  desktop-gtk2:
+  wxwidgets-3-0-gtk2:
+  
   p7zip-desktop:
     plugin: dump 
     source: .
@@ -49,6 +52,9 @@ parts:
       - libwxgtk3.0-dev
       - yasm
       - python
-      
     stage-packages:
-      - libwxgtk3.0-0v5
+      - overlay-scrollbar
+      - overlay-scrollbar-gtk2
+      - libatk-adaptor
+      - libgail-common
+      - libcanberra-gtk-module

@@ -13,11 +13,35 @@ apps:
     command: desktop-launch $SNAP/usr/local/bin/7zDesktop
     desktop: usr/share/applications/7zFM.desktop
     plugs:
-    - x11
-    - wayland 
-    - desktop
-    - desktop-legacy
-    - home
+      - x11
+      - wayland 
+      - desktop
+      - desktop-legacy
+      - home
+    
+environment:
+  GTK_PATH: $SNAP/lib/gtk-2.0
+  GTK_DATA_PREFIX: $SNAP
+  XDG_DATA_DIRS: $SNAP/share:$XDG_DATA_DIRS
+  QT_QPA_PLATFORMTHEME: gtk2
+  
+plugs:
+  icon-themes:
+    interface: content
+    target: $SNAP/data-dir/icons
+    default-provider: gtk-common-themes   
+  sound-themes:
+    interface: content
+    target: $SNAP/data-dir/sounds
+    default-provider: gtk-common-themes
+  gtk-2-engines:
+    interface: content
+    target: $SNAP/lib/gtk-2.0
+    default-provider: gtk2-common-themes:gtk-2-engines
+  gtk-2-themes:
+    interface: content
+    target: $SNAP/share/themes
+    default-provider: gtk2-common-themes:gtk-2-themes
 
 parts:
   desktop-gtk2:
@@ -58,3 +82,4 @@ parts:
       - libatk-adaptor
       - libgail-common
       - libcanberra-gtk-module
+      - qt5-style-plugins

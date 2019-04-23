@@ -527,32 +527,8 @@ static void StartApplication(const UString &dir, const UString &path, HWND windo
   UString tmpPath = path;
 
   wxString filename(nameWindowToUnix(tmpPath));
-
-
-  wxString ext = filename.AfterLast(_T('.'));
-
-  printf("StartApplication(%ls) ext='%ls'\n",(const wchar_t *)filename,(const wchar_t *)ext);
-
-  if ( ! ext.empty() )
-  {
-    wxFileType *ft = wxTheMimeTypesManager->GetFileTypeFromExtension(ext);
-    // printf("StartApplication(%ls) ft=%p\n",(const wchar_t *)filename,ft);
-    if (ft)
-    {
-      wxString cmd;
-      // wxString type; ft->GetMimeType(&type);
-      wxFileType::MessageParameters params(filename); // , type);
-      bool ok = ft->GetOpenCommand(&cmd, params);
-      // printf("StartApplication(%ls) ok=%d\n",(const wchar_t *)filename,(int)ok);
-      delete ft;
-      if ( ok )
-      {
-        printf("StartApplication(%ls) cmd='%ls'\n",(const wchar_t *)filename,(const wchar_t *)cmd);
-        long pid = wxExecute(cmd, wxEXEC_ASYNC);
-        if (pid) return ;
-      }
-    }	   
-  }
+  long pid = wxExecute(wxString("xdg-open ") + filename, wxEXEC_ASYNC);
+  if (pid) return ;
   ::MessageBoxW(window, 
           // NError::MyFormatMessageW(::GetLastError()),
           L"There is no application associated with the given file name extension",

@@ -18,6 +18,7 @@ apps:
       - desktop
       - desktop-legacy
       - home
+      - removable-media
     
 environment:
   GTK_PATH: $SNAP/lib/gtk-2.0
